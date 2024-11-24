@@ -6,7 +6,7 @@ export type NgrokOptions = {
     port: number;
 };
 
-export async function* connect(options: NgrokOptions) {
+export async function* connect(options: NgrokOptions): AsyncGenerator<string, void, unknown> {
     const process = new Deno.Command("ngrok", {
         args: [options.protocol, options.port.toString(), "--log=stdout"],
         stdin: "piped",
@@ -25,7 +25,7 @@ export async function* connect(options: NgrokOptions) {
         if (connected) {
             const url = connected[1];
             console.log("ngrok connected", { url });
-            yield connected[1];
+            yield connected[1] as string;
         }
     }
     console.log("ngrok exited");
