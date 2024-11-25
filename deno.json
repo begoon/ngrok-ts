@@ -1,9 +1,12 @@
 {
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "ngrok-ts helps running ngrok tunnel within an application.",
     "name": "@demin/ngrok-ts",
     "exports": "./main.ts",
     "imports": {
         "@std/streams": "jsr:@std/streams@^1.0.8"
+    },
+    "task": {
+        "publish": "deno publish --no-provenance"
     }
 }
