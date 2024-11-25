@@ -15,6 +15,7 @@
 import { mergeReadableStreams } from "@std/streams/merge-readable-streams";
 import { TextLineStream } from "@std/streams/text-line-stream";
 
+/** This type represents the options for the ngrok connection. */
 export type NgrokOptions = {
     protocol: string;
     port: number;
