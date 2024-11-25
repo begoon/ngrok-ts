@@ -6,6 +6,7 @@ export type NgrokOptions = {
     port: number;
 };
 
+/** This function returns the version of ngrok. */
 export function version(): string {
     const process = new Deno.Command("ngrok", {
         args: ["version"],
@@ -15,6 +16,7 @@ export function version(): string {
     return new TextDecoder().decode(process.stdout).trim();
 }
 
+/** This function connects to ngrok and returns a URL of the tunnel. */
 export async function* connect(options: NgrokOptions): AsyncGenerator<string, void, unknown> {
     const process = new Deno.Command("ngrok", {
         args: [options.protocol, options.port.toString(), "--log=stdout"],
