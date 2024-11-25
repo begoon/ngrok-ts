@@ -6,6 +6,15 @@ export type NgrokOptions = {
     port: number;
 };
 
+export function version() {
+    const process = new Deno.Command("ngrok", {
+        args: ["version"],
+        stdout: "piped",
+        stderr: "piped",
+    }).outputSync();
+    return new TextDecoder().decode(process.stdout).trim();
+}
+
 export async function* connect(options: NgrokOptions): AsyncGenerator<string, void, unknown> {
     const process = new Deno.Command("ngrok", {
         args: [options.protocol, options.port.toString(), "--log=stdout"],
