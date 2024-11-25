@@ -1,3 +1,17 @@
+/**
+ * This module contains functions to interact with ngrok.
+ * @module
+ *
+ * @example
+ * ```ts
+ * import { connect, version } from "jsr:@demin/ngrok-ts";
+ * console.log(version());
+ *
+ * const tunnel = await connect({ protocol: "http", port: 8080 }).next();
+ * console.log(tunnel.value);
+ * ```
+ */
+
 import { mergeReadableStreams } from "@std/streams/merge-readable-streams";
 import { TextLineStream } from "@std/streams/text-line-stream";
 
