@@ -6,7 +6,7 @@ export type NgrokOptions = {
     port: number;
 };
 
-export function version() {
+export function version(): string {
     const process = new Deno.Command("ngrok", {
         args: ["version"],
         stdout: "piped",
